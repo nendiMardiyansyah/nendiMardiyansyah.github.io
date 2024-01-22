@@ -1,0 +1,138 @@
+#m3nu {
+    display: none;
+}
+.overlay {
+    width: 0;
+    height: 0;
+    display: flex;
+    gap: 1.9rem;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 9999;
+    transition: .7s;
+}
+
+.overlay:target {
+    width: auto;
+    height: auto;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.overlay:target img {
+    animation: lowFade 300ms;
+}
+
+.overlay .close {
+    position: absolute;
+    top: 23px;
+    left: 50%;
+    margin-left: -47px;
+    color: white;
+    text-decoration: none;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 0 40% 0 20%;
+    font-weight: 530;
+    font-size: 1.6rem;
+    line-height: 14px;
+    padding: 10px;
+    opacity: 1;
+}
+
+.overlay .next, 
+.overlay .previous {
+    color: white;
+}
+
+/* media query */
+
+@media screen and (max-width: 1200px) {
+    #m3nu {
+        width: 0;
+        height: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        overflow: hidden;
+        font-weight: 700;
+        position: fixed;
+        top: 0;
+        left: 50%;
+        background-color: rgba(0, 0, 0, 0);
+        transition: .5s;
+    }
+    
+    #m3nu:target {
+        width: auto;
+        height: auto;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, .85)
+    }
+    
+    #m3nu:target a {
+        animation: lowFade .6s;
+    }
+    
+    #m3nu ul {
+        list-style-type: none;
+        line-height: 3rem;
+        padding-top: 15px;
+        padding-left: 20px;
+    }
+    
+    #m3nu li a {
+        font-size: 3rem;
+        background-color: greenyellow;
+        border-radius: 0 0 16px 0;
+        color: midnightblue;
+    }
+    
+    #m3nu li:hover a {
+        color: salmon;
+    }
+    
+    #m3nu .xclose {
+        font-size: 4rem;
+        color: white;
+        padding-top: 15px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #m3nu {
+        left: 40%;
+    }
+    #m3nu li a {
+        font-size: 2.6rem;
+    }
+
+    .overlay img {
+        width: 70%;
+    }
+
+    .overlay .close{
+       top: 10%; 
+    }
+}
+
+
+/* animation */
+
+@keyframes lowFade {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+}
